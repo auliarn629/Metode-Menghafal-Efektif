@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghidupkan Kembali Metode Menghafal: Apakah Cocok untuk Semua Orang? - Edukasi</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#faf8f5',
+                        'cream-dark': '#f3efe6',
+                        darkbg: '#181716',
+                        darkcard: '#22201e',
+                        accent: '#8c6d53',
+                        'accent-dark': '#d4a373'
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        arabic: ['Amiri', 'Traditional Arabic', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Style CSS Custom -->
+    <style>
+        body {
+            transition: background-color 0.25s ease, color 0.25s ease;
+            background-color: #faf8f5;
+        }
+
+        .dark body {
+            background-color: #181716;
+        }
+
+        .drop-cap {
+            float: left;
+            font-family: 'Georgia', serif;
+            font-size: 3.5rem;
+            line-height: 0.85;
+            padding-top: 4px;
+            padding-right: 10px;
+            padding-left: 2px;
+            font-weight: 700;
+            color: #795548;
+        }
+
+        .dark .drop-cap {
+            color: #caa178;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e2ddd5;
+            border-radius: 3px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #33312e;
+        }
+
+        #progress-bar {
+            width: 0%;
+        }
+    </style>
+</head>
+<body class="bg-cream dark:bg-darkbg text-stone-800 dark:text-stone-200 font-serif antialiased min-h-screen flex flex-col selection:bg-amber-100 dark:selection:bg-amber-900/50">
+
+    <!-- Scroll Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-stone-700 dark:bg-amber-500 z-50 transition-all duration-150"></div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 w-full py-4 bg-cream/80 dark:bg-darkbg/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50 transition-all duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+            <div class="w-24 hidden sm:block"></div>
+
+            <a href="#" class="group relative font-serif italic font-bold text-xl sm:text-2xl text-stone-900 dark:text-stone-100 tracking-tight transition-transform duration-300 hover:scale-105 mx-auto sm:mx-0">
+                <span class="bg-gradient-to-r from-stone-900 via-stone-700 to-stone-900 dark:from-white dark:via-stone-300 dark:to-white bg-clip-text text-transparent">
+                    Edukasi & Refleksi 
+                </span>
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-700 dark:bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <!-- Kontrol Ukuran Teks & Tema -->
+            <div class="flex items-center space-x-3 text-xs sm:text-sm font-sans">
+                <div class="flex items-center bg-stone-200/70 dark:bg-stone-800/80 rounded-full px-3 py-1.5 text-stone-700 dark:text-stone-300 font-medium shadow-inner transition-all hover:shadow-md">
+                    <button id="btn-text-decrease" title="Kecilkan Teks" class="hover:text-amber-700 dark:hover:text-amber-400 active:scale-90 px-1.5 transition-all focus:outline-none">A-</button>
+                    <span class="text-stone-400 dark:text-stone-600 px-1 text-xs select-none">|</span>
+                    <button id="btn-text-increase" title="Besarkan Teks" class="hover:text-amber-700 dark:hover:text-amber-400 active:scale-90 px-1.5 transition-all focus:outline-none">A+</button>
+                </div>
+
+                <button id="btn-theme-toggle" title="Ubah Mode Layar" class="p-2 bg-stone-200/70 dark:bg-stone-800/80 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 hover:scale-110 active:scale-95 transition-all focus:outline-none rounded-full shadow-sm hover:shadow-md">
+                    <i id="theme-icon" class="fa-solid fa-moon text-base transition-transform duration-300"></i>
+                </button>
+            </div>          
+        </div>      
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-2xl mx-auto px-5 sm:px-6 py-6 sm:py-10 w-full">
+        <article>
+            <!-- Article Header -->
+            <header class="mb-8">
+                <div class="flex items-center flex-wrap gap-2 text-xs font-sans text-stone-500 dark:text-stone-400 mb-4">
+                    <span class="bg-[#ede8e1] dark:bg-stone-800 text-stone-700 dark:text-stone-300 px-3 py-1 rounded-full font-normal transition-all duration-300 hover:scale-105 hover:bg-stone-300 dark:hover:bg-stone-700 hover:shadow-sm cursor-pointer">
+                        Metode Belajar & Pembelajaran
+                    </span>
+                    
+                    <span class="flex items-center gap-1.5 ml-1 transition-all duration-300 hover:text-stone-800 dark:hover:text-stone-200 group cursor-default">
+                        <i class="fa-regular fa-calendar text-stone-400 group-hover:scale-110 group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-transform duration-300"></i>
+                        <time datetime="2026-10-20">20 Oktober 2026</time>
+                    </span>
+                    
+                    <span class="text-stone-300 dark:text-stone-700">•</span>
+                    
+                    <span class="flex items-center gap-1.5 transition-all duration-300 hover:text-stone-800 dark:hover:text-stone-200 group cursor-default">
+                        <i class="fa-regular fa-clock text-stone-400 group-hover:animate-spin transition-transform duration-500"></i>
+                        <span id="read-timer" class="font-mono tabular-nums">07:00</span>
+                    </span>
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl font-bold font-serif text-stone-900 dark:text-stone-100 leading-snug sm:leading-tight mb-3">
+                    Menghidupkan Kembali Metode Menghafal: Apakah Cocok untuk Semua Orang?
+                </h1>
+                
+                <p class="text-lg sm:text-xl font-serif italic text-amber-900 dark:text-amber-400 mb-6 leading-relaxed">
+                    Mengenal tradisi belajar para ulama, pengalaman pribadi dengan metode hafalan, serta pentingnya mengintegrasikan pemahaman dan ingatan dalam menuntut ilmu.
+                </p>
+
+                <div class="w-full border-b border-stone-200/80 dark:border-stone-800 mb-6"></div> 
+
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-full bg-[#e3ded5] dark:bg-stone-800 flex items-center justify-center font-sans font-medium text-stone-700 dark:text-stone-300 text-sm">
+                        AR
+                    </div>
+                    <div>
+                        <h2 class="font-sans font-bold text-stone-900 dark:text-stone-100 text-sm sm:text-base leading-tight">
+                            Aulia Rahman
+                        </h2>
+                        <p class="font-sans text-xs text-stone-500 dark:text-stone-400 mt-0.5">
+                            Penulis & Pengembang Web Lepas
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Article Body -->
+            <div id="article-body" class="text-lg space-y-6 text-stone-800 dark:text-stone-300 leading-relaxed font-serif text-justify hyphens-auto transition-all duration-200">
+                
+                <!-- Section 1 -->
+                <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-stone-100 pt-4 pb-1 border-b border-stone-200/60 dark:border-stone-800 text-left">
+                    Mengenal Kembali Metode Belajar Para Ulama
+                </h2>
+
+                <p class="leading-relaxed">
+                    <span class="drop-cap">M</span>etode menghafal sebenarnya bukanlah metode belajar yang baru. Sejak dahulu, para ulama telah menjadikan hafalan sebagai salah satu bagian penting dalam proses menuntut ilmu. Mereka mempelajari suatu bidang ilmu dengan sungguh-sungguh, menghafal materi-materi penting, mengulanginya secara terus-menerus, dan mendalaminya hingga benar-benar menguasainya. Setelah dasar-dasar ilmu tersebut kuat dan tertanam dalam ingatan, barulah mereka melanjutkan pembelajaran ke bidang ilmu berikutnya.
+                </p>
+
+                <p class="leading-relaxed">
+                    Pola belajar seperti ini mengajarkan kepada kita sebuah prinsip penting: jangan terburu-buru berpindah ke pelajaran berikutnya sebelum kita memiliki bekal yang cukup dari pelajaran yang sedang kita tekuni. Belajar bukan sekadar tentang seberapa banyak buku yang telah kita selesaikan, melainkan seberapa dalam ilmu yang benar-benar kita kuasai.
+                </p>
+
+                <p class="leading-relaxed">
+                    Di Indonesia, metode belajar yang menekankan hafalan dan penguasaan satu bidang ilmu secara bertahap mungkin tidak terlalu umum kita jumpai dalam semua lingkungan pendidikan. Tentu saja, ada lembaga dan tempat belajar yang masih menerapkannya. Namun, dalam pengalaman saya, pendekatan yang menuntut seseorang untuk menghafal, mengulang, dan menguasai materi sebelum berpindah ke pelajaran berikutnya masih relatif jarang saya temukan.
+                </p>
+
+                <p class="leading-relaxed">
+                    Padahal, metode ini memiliki keistimewaan tersendiri. Kita tidak hanya dituntut untuk memahami materi ketika pelajaran berlangsung, tetapi juga berusaha menjaga agar ilmu tersebut tetap melekat dalam ingatan dan dapat digunakan kembali ketika dibutuhkan.
+                </p>
+
+                <!-- Section 2 -->
+                <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-stone-100 pt-6 pb-1 border-b border-stone-200/60 dark:border-stone-800 text-left">
+                    Pengalaman Pertama Belajar dengan Metode Menghafal
+                </h2>
+
+                <p class="leading-relaxed">
+                    Pertama kali saya mengenal metode belajar seperti ini adalah pada tahun 2021, ketika saya belajar kepada seorang Syekh yang berasal dari Yaman. Dalam proses pembelajaran tersebut, kami dilatih untuk menghafal mutun, yaitu teks-teks ringkas yang merangkum pokok-pokok suatu bidang ilmu, serta hadis-hadis pendek sebagai bagian dari pembelajaran awal.
+                </p>
+
+                <p class="leading-relaxed">
+                    Salah satu pengalaman pertama yang masih saya ingat adalah ketika kami diminta menghafal sebuah hadis pendek dengan sanad yang bersambung melalui rangkaian periwayatan tertentu, yang dikenal sebagai <em>sanad musalsal bil awwaliyyah</em>.
+                </p>
+
+                <p class="leading-relaxed">
+                    Bagi saya, pengalaman tersebut sangat menantang. Pada awalnya, menghafal teks beserta susunannya bukanlah perkara yang mudah. Kami harus berusaha mengingat setiap bagian dengan tepat, mengulanginya berkali-kali, dan bersabar ketika hafalan belum juga melekat dengan baik.
+                </p>
+
+                <p class="leading-relaxed">
+                    Namun, justru di situlah saya mulai merasakan daya tarik metode ini. Ada tantangan yang membuat saya harus lebih bersungguh-sungguh, lebih disiplin, dan lebih sabar dalam belajar. Saya tidak hanya dituntut untuk memahami apa yang disampaikan oleh guru, tetapi juga harus berusaha menyimpan materi tersebut dalam ingatan.
+                </p>
+
+                <p class="leading-relaxed">
+                    Sejak awal mengenal metode ini, saya sudah menyukainya. Saya mulai melihat bahwa proses belajar tidak harus selalu berakhir ketika kita merasa paham. Ada tahapan berikutnya yang tidak kalah penting, yaitu menguatkan ingatan melalui hafalan dan pengulangan.
+                </p>
+
+                <p class="leading-relaxed">
+                    Dari pengalaman tersebut, saya belajar bahwa menguasai ilmu membutuhkan proses. Tidak cukup hanya sekali membaca, sekali mendengar, atau sekali memahami. Terkadang, kita harus kembali mengulang materi yang sama berkali-kali sampai benar-benar akrab dengan apa yang sedang kita pelajari.
+                </p>
+
+                <!-- Section 3 -->
+                <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-stone-100 pt-6 pb-1 border-b border-stone-200/60 dark:border-stone-800 text-left">
+                    Apakah Metode Menghafal Cocok untuk Semua Orang?
+                </h2>
+
+                <p class="leading-relaxed font-semibold italic text-stone-900 dark:text-stone-100">
+                    Pertanyaannya, apakah metode menghafal cocok untuk semua orang?
+                </p>
+
+                <p class="leading-relaxed">
+                    Menurut saya, metode ini dapat digunakan oleh siapa saja. Namun, ada hal yang perlu kita bedakan: apakah semua orang mampu menggunakan metode menghafal, dan apakah semua orang bersedia menjadikannya sebagai metode utama dalam belajar?
+                </p>
+
+                <p class="leading-relaxed">
+                    Tentu saja, tidak semua orang memilih cara belajar yang sama. Ada yang lebih tertarik pada metode pemahaman, praktik langsung, diskusi, atau pendekatan lainnya. Setiap orang memiliki kecenderungan dan kebutuhan belajar yang berbeda.
+                </p>
+
+                <p class="leading-relaxed">
+                    Namun, jangan terburu-buru menganggap metode menghafal sebagai sesuatu yang kuno, membosankan, atau hanya cocok untuk orang-orang tertentu. Sebab, di balik metode ini terdapat kekuatan yang dapat membantu kita membangun penguasaan ilmu secara lebih mendalam.
+                </p>
+
+                <p class="leading-relaxed">
+                    Belajar dengan metode menghafal bukan sekadar berusaha mengingat materi, tetapi juga membangun bekal ilmu yang dapat kita gunakan untuk memahami dan mempelajari hal-hal berikutnya.
+                </p>
+
+                <p class="leading-relaxed">
+                    Saya merasakan sendiri manfaatnya ketika mempelajari ilmu faraid, nahwu, dan tajwid. Dahulu, ilmu nahwu dan faraid terasa sangat sulit bagi saya. Ada kalanya saya memahami materi yang dipelajari hari ini, tetapi ketika mencoba mengingatnya kembali pada keesokan hari, ternyata saya sudah lupa.
+                </p>
+
+                <blockquote class="p-4 bg-[#f5f1ea] dark:bg-stone-800/60 rounded-r-lg border-l-4 border-amber-800 dark:border-amber-500 font-sans text-sm sm:text-base space-y-1 my-4">
+                    <p class="font-serif italic text-stone-800 dark:text-stone-200">
+                        "Memahami suatu materi ketika sedang belajar tidak selalu berarti kita mampu mengingatnya kembali pada waktu yang lain. Pemahaman sesaat perlu diperkuat dengan pengulangan agar pengetahuan tersebut lebih mudah diingat dan digunakan kembali."
+                    </p>
+                </blockquote>
+
+                <p class="leading-relaxed">
+                    Di sinilah saya melihat salah satu kekuatan metode menghafal. Ketika materi terus diulang dan dihafalkan, kita memiliki kesempatan lebih besar untuk menyimpannya dalam ingatan jangka panjang. Ilmu yang sebelumnya terasa sulit perlahan-lahan menjadi lebih akrab. Materi yang dahulu harus dibuka kembali dari awal, sedikit demi sedikit mulai tersimpan dalam ingatan.
+                </p>
+
+                <p class="leading-relaxed">
+                    Dengan demikian, kita tidak harus terus-menerus memulai dari nol setiap kali ingin mempelajari suatu pembahasan. Kita telah memiliki bekal pengetahuan yang dapat digunakan untuk memahami materi yang lebih luas dan mendalam.
+                </p>
+
+                <!-- Section 4 -->
+                <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-stone-100 pt-6 pb-1 border-b border-stone-200/60 dark:border-stone-800 text-left">
+                    Menghafal dan Memahami: Dua Hal yang Saling Menguatkan
+                </h2>
+
+                <p class="leading-relaxed">
+                    Coba kita perhatikan seseorang yang mempelajari Al-Qur'an. Menghafal Al-Qur'an bukan hanya tentang mengingat susunan ayat, tetapi juga dapat membantu seseorang ketika hendak menelaah hubungan antara satu ayat dan ayat lainnya.
+                </p>
+
+                <p class="leading-relaxed">
+                    Ketika ayat-ayat tersebut telah tersimpan dalam ingatan, seseorang dapat lebih mudah mengingat kembali ayat yang relevan saat mempelajari suatu tema, membandingkan penjelasan, atau menyampaikan ilmu kepada orang lain.
+                </p>
+
+                <p class="leading-relaxed">
+                    Tentu saja, hal ini bukan berarti orang yang tidak menghafal Al-Qur'an pasti kurang memahami maknanya. Pemahaman seseorang tidak bisa diukur hanya dari banyaknya hafalan. Akan tetapi, hafalan dapat menjadi bekal yang sangat bermanfaat untuk menunjang proses pendalaman ilmu.
+                </p>
+
+                <p class="leading-relaxed font-medium text-stone-900 dark:text-stone-100">
+                    Hal serupa juga berlaku dalam ilmu-ilmu lainnya:
+                </p>
+
+                <ul class="list-disc list-inside space-y-2 text-stone-800 dark:text-stone-300 pl-2">
+                    <li><strong class="text-stone-900 dark:text-stone-100">Ilmu Nahwu:</strong> Menghafal kaidah dapat membantu kita mengenali pola bahasa Arab.</li>
+                    <li><strong class="text-stone-900 dark:text-stone-100">Ilmu Faraid:</strong> Mengingat kaidah dan ketentuan pembagian warisan dapat menjadi bekal untuk menyelesaikan persoalan yang lebih kompleks.</li>
+                    <li><strong class="text-stone-900 dark:text-stone-100">Ilmu Tajwid:</strong> Mengingat kaidah dapat membantu kita menerapkannya dengan lebih tepat ketika membaca Al-Qur'an.</li>
+                </ul>
+
+                <p class="leading-relaxed">
+                    Oleh karena itu, menghafal dan memahami tidak seharusnya dipertentangkan. Keduanya dapat saling menguatkan. Pemahaman membantu kita menangkap makna suatu ilmu, sedangkan hafalan membantu kita menyimpan dan mengingat kembali materi tersebut ketika dibutuhkan.
+                </p>
+
+                <!-- Section 5 -->
+                <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-stone-100 pt-6 pb-1 border-b border-stone-200/60 dark:border-stone-800 text-left">
+                    Mengapa Kita Perlu Membiasakan Diri Menghafal?
+                </h2>
+
+                <p class="leading-relaxed">
+                    Bayangkan jika setiap kali ingin menjelaskan suatu ilmu, kita harus membuka kembali seluruh catatan dari awal karena hampir semua materi telah terlupakan. Tentu hal itu akan menyulitkan.
+                </p>
+
+                <p class="leading-relaxed">
+                    Sebaliknya, apabila dasar-dasar ilmu telah tertanam kuat dalam ingatan, kita akan memiliki bekal yang lebih baik untuk menjelaskan, menghubungkan, dan mengembangkan ilmu tersebut.
+                </p>
+
+                <p class="leading-relaxed">
+                    Saya meyakini bahwa kemampuan mengingat materi yang telah dipelajari merupakan salah satu bekal penting dalam menyebarkan ilmu. Sebab, ketika seseorang ingin mengajarkan suatu bidang ilmu, ia tidak cukup hanya mengandalkan pemahaman yang pernah dimilikinya. Ia juga perlu mampu mengingat kembali materi yang relevan agar dapat menyampaikannya dengan tepat, runtut, dan jelas.
+                </p>
+
+                <p class="leading-relaxed">
+                    Karena itu, saya ingin mengajak kita semua untuk tidak meremehkan metode menghafal. Jangan langsung menyerah hanya karena pada awalnya terasa sulit. Jangan pula menganggap diri kita tidak mampu menghafal hanya karena membutuhkan waktu lebih lama dibandingkan orang lain.
+                </p>
+
+                <p class="leading-relaxed italic">
+                    Bisa jadi, kita bukan tidak mampu, melainkan belum terbiasa, belum menemukan cara yang sesuai, atau belum cukup konsisten dalam mengulang materi.
+                </p>
+
+                <p class="leading-relaxed">
+                    Mulailah dari sedikit demi sedikit. Hafalkan bagian yang sederhana, ulangi secara rutin, pahami maknanya, lalu cobalah menerapkannya. Tidak perlu terburu-buru mengejar banyaknya materi jika akhirnya mudah terlupakan.
+                </p>
+
+                <p class="leading-relaxed">
+                    Lebih baik kita memberikan waktu yang cukup untuk menguatkan dasar-dasar ilmu daripada terus berpindah ke materi baru tanpa memiliki bekal yang kokoh dari materi sebelumnya.
+                </p>
+
+                <p class="leading-relaxed">
+                    Tentu saja, kita tetap perlu menyesuaikan metode belajar dengan karakteristik materi dan kebutuhan masing-masing. Tidak semua ilmu harus dipelajari dengan cara yang sama. Ada ilmu yang membutuhkan banyak latihan, praktik, pengamatan, dan diskusi. Namun, dalam banyak bidang ilmu, hafalan dapat menjadi salah satu sarana yang sangat bermanfaat untuk memperkuat penguasaan materi.
+                </p>
+
+                <!-- Section 6: Penutup -->
+                <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-stone-100 pt-6 pb-1 border-b border-stone-200/60 dark:border-stone-800 text-left">
+                    Penutup: Jangan Hanya Memahami, Berusahalah untuk Mengingat
+                </h2>
+
+                <p class="leading-relaxed">
+                    Pada akhirnya, tujuan belajar bukan sekadar merasa paham ketika pelajaran sedang berlangsung. Kita juga ingin agar ilmu tersebut tetap melekat dalam ingatan, dapat digunakan ketika dibutuhkan, dan memberikan manfaat bagi orang lain.
+                </p>
+
+                <p class="leading-relaxed">
+                    Pengalaman saya belajar ilmu faraid, nahwu, tajwid, serta pengalaman pertama mengenal metode menghafal pada tahun 2021 mengajarkan bahwa menguasai ilmu membutuhkan kesabaran, pengulangan, dan kesungguhan. Hasilnya mungkin tidak langsung terlihat, tetapi proses yang dilakukan secara konsisten dapat membantu kita membangun fondasi keilmuan yang lebih kuat.
+                </p>
+
+                <blockquote class="p-4 my-4 border-l-4 border-amber-800 dark:border-amber-500 bg-[#f5f1ea] dark:bg-stone-800/60 rounded-r-lg italic text-stone-800 dark:text-stone-200 font-serif">
+                    "Karena itu, jangan hanya bertanya, 'Berapa banyak buku yang sudah saya pelajari?' Cobalah bertanya pula, 'Seberapa banyak ilmu dari buku-buku itu yang benar-benar saya kuasai dan masih saya ingat?'"
+                </blockquote>
+
+                <p class="leading-relaxed">
+                    Sebab, menyelesaikan banyak buku belum tentu berarti menguasai banyak ilmu. Terkadang, mendalami satu buku dengan sungguh-sungguh, memahami isinya, menghafal bagian-bagian pentingnya, dan mengajarkannya kembali justru memberikan bekal yang lebih kokoh untuk melangkah ke pelajaran berikutnya.
+                </p>
+
+                <p class="leading-relaxed font-semibold text-stone-900 dark:text-stone-100">
+                    Jangan hanya berusaha memahami ilmu hari ini, tetapi berusahalah agar ilmu itu tetap bersama kita esok hari.
+                </p>
+
+                <p class="leading-relaxed">
+                    Mari kita hidupkan kembali semangat belajar yang tidak sekadar mengejar banyaknya materi, tetapi juga mengutamakan kedalaman penguasaan ilmu. Belajar dengan sabar, menghafal dengan tekun, memahami dengan sungguh-sungguh, dan mengamalkan apa yang telah dipelajari.
+                </p>
+
+                <p class="leading-relaxed italic">
+                    Karena ilmu yang kita ingat, pahami, dan amalkan akan menjadi bekal berharga dalam perjalanan menuntut ilmu.
+                </p>
+
+            </div>
+        </article>
+
+        <!-- Post Action Row -->
+        <div class="mt-12 pt-6 border-t border-stone-200/90 dark:border-stone-800/80 font-sans">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                    <a href="#" id="btn-share" class="group inline-flex items-center space-x-2 bg-stone-200/70 dark:bg-stone-800 hover:bg-stone-300/80 dark:hover:bg-stone-700/80 text-stone-800 dark:text-stone-200 text-xs sm:text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-md focus:outline-none">
+                        <span>Lanjutkan</span>
+                        <i class="fa-solid fa-angles-right text-stone-600 dark:text-stone-400 text-xs transition-transform duration-300 group-hover:translate-x-1 group-hover:text-stone-900 dark:group-hover:text-white"></i>
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-2 text-xs sm:text-sm text-stone-500 dark:text-stone-400">
+                    <span>Ruang Baca:</span>
+                    <span class="font-bold text-amber-800 dark:text-amber-400">Metode Menghafal & Penguasaan Ilmu</span>
+                </div>
+            </div>  
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-stone-900 border-t border-stone-200/60 dark:border-stone-800 py-8 mt-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center text-sm text-stone-500 dark:text-stone-400 space-y-3">
+            <p>&copy; 2026 Aulia Rahman. Ruang Coret-Coret Pribadi.</p>
+            <p class="text-xs">Dibuat dengan kesederhanaan, coklat, dan kode bersih.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interaktif -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Countdown Timer Baca (Disesuaikan menjadi 7 menit untuk materi baru)
+            let totalSeconds = 7 * 60;
+            const timerElement = document.getElementById('read-timer');
+
+            const countdown = setInterval(() => {
+                if (totalSeconds <= 0) {
+                    clearInterval(countdown);
+                    if (timerElement) timerElement.textContent = 'Selesai dibaca';
+                    return;
+                }
+
+                totalSeconds--;
+
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                const formattedMinutes = String(minutes).padStart(2, '0');
+                const formattedSeconds = String(seconds).padStart(2, '0');
+
+                if (timerElement) timerElement.textContent = `${formattedMinutes}:${formattedSeconds}`;
+            }, 1000);
+
+            // 2. Pengatur Ukuran Teks
+            const articleBody = document.getElementById('article-body');
+            const btnIncrease = document.getElementById('btn-text-increase');
+            const btnDecrease = document.getElementById('btn-text-decrease');
+            const fontSizes = ['text-base', 'text-lg', 'text-xl', 'text-2xl'];
+            let currentSizeIndex = 1;
+
+            if (btnIncrease && articleBody) {
+                btnIncrease.addEventListener('click', () => {
+                    if (currentSizeIndex < fontSizes.length - 1) {
+                        articleBody.classList.remove(fontSizes[currentSizeIndex]);
+                        currentSizeIndex++;
+                        articleBody.classList.add(fontSizes[currentSizeIndex]);
+                    }
+                });
+            }
+
+            if (btnDecrease && articleBody) {
+                btnDecrease.addEventListener('click', () => {
+                    if (currentSizeIndex > 0) {
+                        articleBody.classList.remove(fontSizes[currentSizeIndex]);
+                        currentSizeIndex--;
+                        articleBody.classList.add(fontSizes[currentSizeIndex]);
+                    }
+                });
+            }
+
+            // 3. Sakelar Tema (Dark / Light Mode)
+            const themeToggleBtn = document.getElementById('btn-theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const htmlElement = document.documentElement;
+
+            if (themeToggleBtn && themeIcon) {
+                themeToggleBtn.addEventListener('click', () => {
+                    if (htmlElement.classList.contains('dark')) {
+                        htmlElement.classList.remove('dark');
+                        htmlElement.classList.add('light');
+                        themeIcon.classList.remove('fa-sun');
+                        themeIcon.classList.add('fa-moon');
+                    } else {
+                        htmlElement.classList.remove('light');
+                        htmlElement.classList.add('dark');
+                        themeIcon.classList.remove('fa-moon');
+                        themeIcon.classList.add('fa-sun');
+                    }
+                });
+            }
+
+            // 4. Bar Progres Gulir Layar
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+                const progressBar = document.getElementById('progress-bar');
+                if (progressBar) progressBar.style.width = `${scrolled}%`;
+            });
+        });
+    </script>
+</body>
+</html>
