@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metode Menghafal Efektif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- font tambahan -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fefce8', /* Diubah ke warna kuning langsat yang lembut & elegan */
+                            100: '#fef08a',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+
+
+
+
+
+<body class="text-brand-800 font-sans antialiased min-h-screen m-0 p-0" style="background-image: url('tes.jpeg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
+
+    <!-- Kontainer Utama dengan Batas Maksimal & Jarak Samping yang Nyaman -->
+    <main class="max-w-7xl mx-auto py-12 px-6 sm:px-8 lg:px-12">
+
+        <!-- HEADER KONTEN: Minimalis Modern -->
+        <section class="relative text-center max-w-3xl mx-auto pt-4 pb-16 px-4 overflow-hidden">
+            <!-- Background Glow Halus -->
+            <div class="absolute inset-0 -z-10 flex items-center justify-center opacity-40">
+                <div class="w-72 h-72 bg-yellow-100 rounded-full blur-3xl"></div>
+            </div>
+
+            <h1 class="font-['Garamond',_serif] text-4xl sm:text-5xl font-semibold text-slate-900 tracking-tight leading-tight mb-6">
+                Kuasai Materi Lebih <span class="text-amber-700">Cepat</span> 
+                <span class="block font-normal italic text-slate-700 mt-1">dengan Metode Menghafal Efektif</span>
+            </h1>
+
+            <p class="font-['EB_Garamond',_serif] text-amber-800 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto">Eksplorasi strategi dan teknik yang terbukti secara ilmiah untuk mempercepat daya ingat, memahami konsep secara mendalam, serta mempertahankan retensi jangka panjang.
+            </p>
+        </section>
+
+        <!-- KUMPULAN ARTIKEL / MODUL HAFALAN -->
+        <section class="mt-4">
+            
+
+            <!-- Grid Kartu Artikel -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Kartu Artikel 1 -->
+                <article class="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 max-w-xs mx-auto w-full">
+                    <a href="#" class="h-full flex flex-col">
+                        <!-- Bagian Gambar -->
+                        <div class="relative overflow-hidden h-36">
+                            <img src="hafalan.jpeg" alt="Metode Menghafal Efektif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        
+                        <!-- Bagian Konten -->
+                        <div class="p-4 flex flex-col flex-grow">
+                            <!-- Tanggal & Kategori -->
+                            <div class="flex items-center gap-1.5 mb-2 text-[11px] text-gray-500">
+                                <span><i class="far fa-calendar-alt mr-1"></i> 17 Okt 2026</span>
+                                <span>•</span>
+                                <span class="bg-yellow-50 text-amber-800 border border-yellow-200 px-2 py-0.5 rounded-full font-medium text-[10px]">Tips Belajar</span>
+                            </div>
+                            
+                            <!-- Judul -->
+                            <h3 class="font-serif text-base font-semibold text-brand-900 mb-1.5 group-hover:text-amber-700 transition-colors leading-snug">
+                                Metode Menghafal Efektif untuk Menguasai Materi Baru
+                            </h3>
+                            
+                            <!-- Deskripsi -->
+                            <p class="text-gray-600 text-xs leading-normal mb-3 flex-grow line-clamp-3">
+                                Eksplorasi teknik dan strategi menghafal yang terbukti secara ilmiah untuk mempercepat daya ingat, memahami konsep lebih dalam, dan retensi jangka panjang.
+                            </p>
+                            
+                            <!-- Tombol Baca Artikel -->
+                            <div class="flex items-center text-xs font-semibold text-brand-900 group-hover:text-amber-700 transition-colors mt-auto">
+                                Baca Artikel <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-1 transition-transform text-[10px]"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+</main>
+
+
+<!-- Footer: Kartu Aksen Lembut -->
+<footer class="bg-white dark:bg-stone-900 border-t border-stone-200/60 dark:border-stone-800 py-8 mt-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center text-sm text-stone-500 dark:text-stone-400 space-y-3">
+            <p>&copy; 2026 Aulia Rahman. Ruang Coret-Coret Pribadi.</p>
+            <p class="text-xs">Dibuat dengan kesederhanaan, coklat, dan kode bersih.</p>
+        </div>
+    </footer>
+
+
+
+
+</body>
+</html>
